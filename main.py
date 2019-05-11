@@ -1,9 +1,10 @@
 # importing pygame
 import pygame
 
+pygame.init()
+
 def main():
 
-  pygame.init()
   screen = pygame.display.set_mode((640, 480))
   pygame.display.set_caption('Space Invaders')
   player = pygame.image.load('spaceInvadersSprite.png')
@@ -34,6 +35,7 @@ def main():
           x += 50
           bulletX += 50
         elif event.key == pygame.K_SPACE:
+          
           screen.blit(bullet, (bulletX, bulletY))
           for i in range(10):
             bulletY -= 70
@@ -42,10 +44,10 @@ def main():
             for j in range(alienX, alienX + 50):
               for k in range(alienY, alienY + 50):
                 if bulletX == j and bulletY == k:
-                  alien = pygame.image.load('blank.png')
+                  alien = pygame.image.load("blank.png")
             pygame.time.delay(10)
           bulletY = y + 1
-
+          
     screen.blit(background, (0, 0))
     screen.blit(player, (x, y))
     screen.blit(alien, (alienX, alienY))
